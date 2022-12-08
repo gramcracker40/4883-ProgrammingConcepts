@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+
   map<string, string> languageMap = {
       {"HELLO", "ENGLISH"},  {"HOLA", "SPANISH"}, {"HALLO", "GERMAN"},
       {"BONJOUR", "FRENCH"}, {"CIAO", "ITALIAN"}, {"ZDRAVSTVUJTE", "RUSSIAN"}};
@@ -16,6 +17,11 @@ int main() {
       break;
     caseNumber++;
 
-    cout << "Case Number: " << caseNumber << " " << languageMap[word] << endl;
+    auto mapIterator = languageMap.find(word);
+    if (mapIterator == languageMap.end())
+      cout << "Case " << caseNumber << ": "
+           << "UNKNOWN" << endl;
+    else
+      cout << "Case " << caseNumber << ": " << languageMap[word] << endl;
   }
 }
